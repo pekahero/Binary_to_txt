@@ -50,7 +50,6 @@ bool convert_and_write_to_file(const string output_path, char* message_binary, s
                 message_txt += time_1 + time_2 + "\n" + to_string(size - 5) + "\n" + tmp + "\n";
 
                 output_file.write((char*)message_txt.c_str(), message_txt.length());
-                cout << message_txt;
 
                 message_txt.clear();
                 tmp.clear();
