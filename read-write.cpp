@@ -1,29 +1,5 @@
 #include "read-write.h";
 
-/*bool read_from_binary_file(const string input_path, vector<unsigned char>& buffer, size_t& file_length) {
-	ifstream input_file(input_path, ios::binary | ios::in);
-    if (!input_file.is_open()) {
-        cerr << "Error opening input file." << endl;
-        return false;
-    }
-
-    input_file.seekg(0, input_file.end);
-    file_length = input_file.tellg();
-    input_file.seekg(0, input_file.beg);
-
-    //vector<unsigned char> buffer;
-    
-    //input_file >> hex;
-    for (size_t i = 0; i < file_length; i++) {
-        char tmp;
-        input_file >> tmp;
-        buffer.push_back(tmp);
-    }
-
-    input_file.close();
-    return true;
-}*/
-
 char* read_from_binary_file(const string input_path, size_t& file_length) {
     ifstream input_file(input_path, ios::binary | ios::in);
     if (!input_file.is_open())
@@ -96,14 +72,4 @@ string bin_to_hex(char bin) {
     const unsigned char mask_2 = 0x0F;
 
     return hex_digits[(mask_1 & bin) >> 4] + hex_digits[mask_2 & bin];
-}
-
-
-string bin_to_dec(char bin) {
-    bitset<8> bits(bin);
-    int tmp = 0;
-    for (int i = 0; i < 8; i++)
-        tmp += (bits[i] << i);
-    string result = to_string(tmp);
-    return result;
 }
