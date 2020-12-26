@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
 	size_t size = 0;
 	size_t buffer_pos = 0;
 
-	while (counter_m != file_length) {
+	while (counter_s != file_length) {
 		//read command_word
 		input_file.read(command_word_binary, 2);
 		memcpy(&command_word_int, &command_word_binary[0], 2);
